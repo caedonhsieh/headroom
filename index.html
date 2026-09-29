@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Headroom</title>
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#182128;--bg2:#202c34;--surface:#27353e;--surface2:#2d3d47;--line:#41535e;
+  --text:#f1f5f4;--muted:#aebdc1;--faint:#7d9198;--accent:#8fdac9;--accent2:#e1b877;
+  --danger:#ef897f;--shadow:rgba(3,9,13,.38);--room:#111c23;--grid:rgba(173,211,216,.11);
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#070c11;--bg2:#0c131a;--surface:#111b23;--surface2:#16232c;--line:#263742;
+  --text:#edf5f3;--muted:#99abb0;--faint:#64777e;--accent:#79d6c2;--accent2:#e5b56b;
+  --danger:#f07d73;--shadow:rgba(0,0,0,.55);--room:#080f15;--grid:rgba(139,191,198,.1);
+}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden}
+body{font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);font-size:14px;letter-spacing:.005em}
+button,input,select{font:inherit;color:inherit}
+button{border:0;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.app{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr);background:linear-gradient(145deg,var(--bg),var(--bg2))}
+.topbar{min-height:62px;display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg2) 92%,transparent)}
+.brand-context{display:flex;align-items:center;gap:9px;margin-right:auto;min-width:0}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--faint);box-shadow:0 0 0 4px color-mix(in srgb,var(--faint) 15%,transparent)}
+.live-dot.on{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 15%,transparent),0 0 16px color-mix(in srgb,var(--accent) 65%,transparent)}
+.context-copy{min-width:0}.scene-name{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.context-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.presets{display:flex;align-items:center;gap:6px}
+.chip,.tool{background:var(--surface);border:1px solid var(--line);border-radius:8px;min-height:34px;padding:7px 10px;white-space:nowrap;transition:background .15s,border-color .15s}
+.chip:hover,.tool:hover{background:var(--surface2);border-color:var(--faint)}
+.chip.active{background:color-mix(in srgb,var(--accent) 14%,var(--surface));border-color:color-mix(in srgb,var(--accent) 60%,var(--line));color:var(--text)}
+.tool{display:inline-flex;align-items:center;gap:7px}.tool svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}.tool.primary{background:var(--accent);border-color:var(--accent);color:#07120f;font-weight:750}.tool.recording{background:var(--danger);border-color:var(--danger);color:#1d0907}.record-led{width:7px;height:7px;border-radius:50%;background:currentColor}
+.workspace{min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 320px}
+.stage-wrap{position:relative;min-width:0;min-height:0;padding:18px}
+.stage{position:relative;width:100%;height:100%;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--room);box-shadow:0 18px 50px var(--shadow)}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.stage-hud{position:absolute;left:14px;top:14px;pointer-events:none;padding:7px 9px;background:color-mix(in srgb,var(--room) 76%,transparent);border:1px solid var(--line);border-radius:7px;color:var(--muted);font-size:11px;line-height:1.4;backdrop-filter:blur(8px)}
+.scale{position:absolute;left:18px;bottom:18px;color:var(--muted);font-size:10px;display:flex;align-items:center;gap:7px;pointer-events:none}.scale-line{width:42px;border-top:1px solid var(--muted);position:relative}.scale-line:before,.scale-line:after{content:"";position:absolute;top:-3px;height:6px;border-left:1px solid var(--muted)}.scale-line:before{left:0}.scale-line:after{right:0}
+.add-hint{position:absolute;right:14px;bottom:13px;color:var(--faint);font-size:11px;pointer-events:none}
+.side{min-height:0;border-left:1px solid var(--line);background:var(--bg2);overflow:auto;padding:0 16px 28px;scrollbar-width:thin}
+.panel-section{padding:18px 0;border-bottom:1px solid var(--line)}.panel-section:last-child{border-bottom:0}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.section-head h2{font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin:0;color:var(--muted);font-weight:750}.status-tag{font-size:10px;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:3px 6px;border-radius:5px}
+.empty-select{color:var(--muted);line-height:1.5;padding:4px 0}.empty-select strong{color:var(--text)}
+.field{display:grid;gap:7px;margin-top:13px}.field:first-child{margin-top:0}.field-row{display:flex;align-items:center;justify-content:space-between;gap:10px}.label{font-size:12px;color:var(--muted)}.value{font-variant-numeric:tabular-nums;font-size:11px;color:var(--text)}
+select,.name-input{width:100%;height:36px;padding:0 10px;background:var(--surface);border:1px solid var(--line);border-radius:7px}
+input[type=range]{appearance:none;width:100%;height:18px;background:transparent;margin:0}input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--line);border-radius:3px}input[type=range]::-webkit-slider-thumb{appearance:none;width:14px;height:14px;border-radius:50%;background:var(--accent);margin-top:-5.5px;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 15%,transparent)}input[type=range]::-moz-range-track{height:3px;background:var(--line)}input[type=range]::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:var(--accent)}
+.segment{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.seg-btn{padding:8px;background:var(--surface);border:1px solid var(--line);border-radius:7px;color:var(--muted);font-size:11px}.seg-btn.active{color:var(--text);border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface))}
+.toggle-row{display:flex;gap:7px;margin-top:14px}.wide{flex:1}.danger{color:var(--danger)}
+.coord{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:13px}.coord span{padding:7px;background:var(--surface);border-radius:6px;color:var(--muted);font-size:10px;text-align:center}.coord b{display:block;color:var(--text);font-size:11px;margin-top:2px;font-weight:650}
+.scene-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.scene-actions .tool{justify-content:center}.scene-actions .full{grid-column:1/-1}
+.headphone-note{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:11px;line-height:1.45}.headphone-note svg{width:18px;min-width:18px;stroke:var(--accent);fill:none;stroke-width:1.6}
+.overlay{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:24px;background:rgba(3,8,12,.82);backdrop-filter:blur(14px);transition:opacity .35s,visibility .35s}.overlay.hidden{opacity:0;visibility:hidden;pointer-events:none}.entry{width:min(480px,100%);text-align:center;padding:36px;background:#0d171e;border:1px solid #2d414b;border-radius:14px;box-shadow:0 30px 90px rgba(0,0,0,.6)}.entry-mark{width:72px;height:72px;margin:0 auto 22px;position:relative}.entry-mark:before,.entry-mark:after{content:"";position:absolute;inset:0;border:1px solid #78d5c1;border-radius:50%;opacity:.6}.entry-mark:after{inset:12px;border-color:#dcb46f}.head-dot{position:absolute;inset:27px;border-radius:50%;background:#edf5f3;box-shadow:0 -20px 0 -7px #78d5c1}.entry h1{margin:0 0 10px;font-size:31px;letter-spacing:-.035em}.entry p{margin:0 auto 24px;max-width:350px;color:#a9b9bd;line-height:1.6}.enter-btn{min-width:200px;padding:12px 18px;background:#79d6c2;color:#07120f;font-weight:800;border-radius:8px}.entry small{display:block;margin-top:16px;color:#71858c}
+.toast{position:fixed;z-index:30;left:50%;bottom:24px;transform:translate(-50%,14px);padding:9px 13px;border-radius:8px;background:var(--text);color:var(--bg);font-size:12px;font-weight:650;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+.mobile-panel-toggle{display:none}
+@media(max-width:900px){
+  html,body{overflow:auto}.app{min-height:100dvh;height:auto}.topbar{position:sticky;top:0;z-index:8;flex-wrap:wrap;padding:9px 12px}.presets{order:3;width:100%;overflow-x:auto;padding-bottom:1px}.workspace{display:block}.stage-wrap{height:min(66vh,610px);padding:10px}.side{border-left:0;border-top:1px solid var(--line);padding:0 14px 26px}.stage-hud{top:9px;left:9px}.add-hint{display:none}
+}
+@media(max-width:560px){
+ .context-sub{display:none}.topbar{gap:7px}.tool{padding:7px 8px}.tool .tool-label{display:none}.stage-wrap{height:55vh;min-height:390px}.presets{gap:5px}.chip{font-size:11px;padding:6px 8px;min-height:30px}.entry{padding:30px 22px}.scene-actions{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand-context">
+      <span class="live-dot" id="audioDot"></span>
+      <div class="context-copy"><div class="scene-name" id="sceneName">Rainy Cabin</div><div class="context-sub" id="engineStatus">Audio engine paused</div></div>
+    </div>
+    <button class="tool" id="addSource" aria-label="Add a sound source">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span class="tool-label">Add source</span>
+    </button>
+    <button class="tool" id="recordBtn" aria-label="Record binaural mix"><span class="record-led"></span><span id="recordLabel" class="tool-label">Record</span></button>
+    <div class="presets" aria-label="Preset scenes">
+      <button class="chip active" data-preset="cabin">Rainy Cabin</button>
+      <button class="chip" data-preset="field">Night Field</button>
+      <button class="chip" data-preset="whisper">Ear-to-ear Whisper</button>
+      <button class="chip" data-preset="empty">Empty Room</button>
+    </div>
+  </header>
+  <main class="workspace">
+    <section class="stage-wrap" aria-label="Spatial sound room">
+      <div class="stage" id="stage">
+        <canvas id="roomCanvas" aria-label="Top-down sixteen by ten meter room with draggable sound sources and listener"></canvas>
+        <div class="stage-hud">16 × 10 m room<br>drag a source or the listener</div>
+        <div class="scale"><span class="scale-line"></span>2 m</div>
+        <div class="add-hint">Double-click empty space to add a source</div>
+      </div>
+    </section>
+    <aside class="side" aria-label="Mixer controls">
+      <section class="panel-section">
+        <div class="section-head"><h2>Selected source</h2><span class="status-tag" id="selectedTag">SOURCE 1</span></div>
+        <div id="sourceEmpty" class="empty-select" hidden><strong>No source selected.</strong><br>Select a node in the room or add a new one.</div>
+        <div id="sourceControls">
+          <div class="field"><label class="label" for="soundPicker">Sound</label><select id="soundPicker">
+            <optgroup label="Generated ambience"><option value="rain">Rain</option><option value="fireplace">Fireplace crackle</option><option value="wind">Wind</option><option value="crickets">Crickets</option><option value="stream">Stream</option><option value="whisper">Whisper texture</option></optgroup>
+            <optgroup label="External input"><option value="mic">Live microphone…</option><option value="upload">Audio file…</option></optgroup>
+          </select></div>
+          <div class="field"><div class="field-row"><label class="label" for="sourceVolume">Volume</label><span class="value" id="sourceVolumeValue">70%</span></div><input type="range" id="sourceVolume" min="0" max="100" value="70"></div>
+          <div class="field"><div class="field-row"><label class="label" for="sourceHeight">Height</label><span class="value" id="sourceHeightValue">0.0 m</span></div><input type="range" id="sourceHeight" min="-20" max="30" value="0"></div>
+          <div class="field"><label class="label" for="automation">Motion path</label><select id="automation"><option value="none">None</option><option value="orbit">Orbit around listener</option><option value="sweep">Ear-to-ear sweep</option><option value="drift">Slow drift</option></select></div>
+          <div class="field"><div class="field-row"><label class="label" for="motionSpeed">Motion speed</label><span class="value" id="motionSpeedValue">1.0×</span></div><input type="range" id="motionSpeed" min="25" max="200" value="100"></div>
+          <div class="coord" aria-label="Source coordinates"><span>X<b id="coordX">0.0 m</b></span><span>Y<b id="coordY">0.0 m</b></span><span>Z<b id="coordZ">0.0 m</b></span></div>
+          <div class="toggle-row"><button class="tool wide" id="muteBtn">Mute</button><button class="tool danger" id="deleteBtn">Delete</button></div>
+          <input id="fileInput" type="file" accept="audio/*" hidden>
+        </div>
+      </section>
+      <section class="panel-section">
+        <div class="section-head"><h2>Listener & room</h2><span class="status-tag">HRTF</span></div>
+        <div class="field"><div class="field-row"><label class="label" for="listenerAngle">Facing angle</label><span class="value" id="listenerAngleValue">0°</span></div><input type="range" id="listenerAngle" min="0" max="359" value="0"></div>
+        <div class="field"><div class="field-row"><label class="label" for="masterVolume">Master volume</label><span class="value" id="masterVolumeValue">78%</span></div><input type="range" id="masterVolume" min="0" max="100" value="78"></div>
+        <div class="field"><div class="field-row"><label class="label" for="roomSize">Room reverb</label><span class="value" id="roomSizeValue">35%</span></div><input type="range" id="roomSize" min="0" max="100" value="35"></div>
+      </section>
+      <section class="panel-section">
+        <div class="section-head"><h2>Scene file</h2></div>
+        <div class="scene-actions">
+          <button class="tool" id="downloadScene"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg>Download</button>
+          <button class="tool" id="importScene"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0 4 4m-4-4L8 8M5 20h14"/></svg>Import</button>
+          <input id="sceneInput" type="file" accept="application/json,.json" hidden>
+        </div>
+      </section>
+      <section class="panel-section">
+        <div class="headphone-note"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0116 0v2M4 14h3v6H5a1 1 0 01-1-1v-5zm16 0h-3v6h2a1 1 0 001-1v-5z"/></svg><span>Headphones are required to hear the HRTF spatial effect. Arrow keys move the listener; drag the outer ring to rotate.</span></div>
+      </section>
+    </aside>
+  </main>
+</div>
+<div class="overlay" id="entryOverlay">
+  <div class="entry">
+    <div class="entry-mark"><span class="head-dot"></span></div>
+    <h1>Enter Headroom</h1>
+    <p>Put on headphones, then place sounds around you. Spatial audio begins only after you enter.</p>
+    <button class="enter-btn" id="enterBtn">Start listening</button>
+    <small>Best experienced with wired or low-latency headphones</small>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+'use strict';
+var WORLD_W=16,WORLD_H=10,COLORS=['#79d6c2','#e5b56b','#87aee8','#e28fa5','#9fca78','#c297df'];
+var canvas=document.getElementById('roomCanvas'),ctx2d=canvas.getContext('2d'),stage=document.getElementById('stage');
+var audioCtx=null,masterGain=null,dryGain=null,wetGain=null,convolver=null,recDest=null,mediaRecorder=null,recordChunks=[];
+var sources=[],selectedId=null,nextId=1,drag=null,lastTime=performance.now(),entered=false,toastTimer=0;
+var listener={x:8,z:5,angle:0};
+var buffers={};
+var presets={
+ cabin:{name:'Rainy Cabin',room:42,sources:[{kind:'rain',x:3,z:2.1,h:.8,v:.68},{kind:'fireplace',x:12.8,z:7.5,h:-.2,v:.55},{kind:'wind',x:13.4,z:1.7,h:1.4,v:.26}]},
+ field:{name:'Night Field',room:18,sources:[{kind:'crickets',x:2.5,z:3,h:.2,v:.6},{kind:'crickets',x:13.2,z:7.8,h:.4,v:.47},{kind:'wind',x:8,z:1.3,h:1.8,v:.32},{kind:'stream',x:11.7,z:4.8,h:-.5,v:.3}]},
+ whisper:{name:'Ear-to-ear Whisper',room:8,sources:[{kind:'whisper',x:8,z:3.9,h:.1,v:.62,auto:'sweep',speed:.7}]},
+ empty:{name:'Empty Room',room:24,sources:[]}
+};
+var activePreset='cabin';
+function $(id){return document.getElementById(id)}
+function clamp(n,a,b){return Math.max(a,Math.min(b,n))}
+function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show')},2200)}
+function dbSmooth(param,value,time){if(!param)return;param.cancelScheduledValues(time);param.setTargetAtTime(value,time,.035)}
+function makeNoiseBuffer(kind){
+ if(buffers[kind]||!audioCtx)return buffers[kind];
+ var seconds=kind==='crickets'?8:6,rate=audioCtx.sampleRate,len=rate*seconds,b=audioCtx.createBuffer(1,len,rate),d=b.getChannelData(0),i,prev=0,slow=0;
+ for(i=0;i<len;i++){
+  var t=i/rate,n=Math.random()*2-1,v=0;
+  if(kind==='rain'){prev=.72*prev+.28*n;v=(n*.72+prev*.28)*(.62+.25*Math.sin(t*.57));if(Math.random()<.0014)v+=(Math.random()*2-1)*2.2;}
+  else if(kind==='fireplace'){slow=.985*slow+.015*n;v=slow*.16;if(Math.random()<.0018){var pop=Math.random()*.9+.25;v+=pop*(Math.random()>.5?1:-1)} }
+  else if(kind==='wind'){slow=.9975*slow+.0025*n;prev=.94*prev+.06*n;v=(slow*.9+prev*.18)*(.65+.3*Math.sin(t*.23));}
+  else if(kind==='crickets'){var gate=(Math.sin(t*2.3)+Math.sin(t*.71)>1.05)?1:0;v=gate*(Math.sin(2*Math.PI*(3100+240*Math.sin(t*1.9))*t)*.18)+(n*.015);}
+  else if(kind==='stream'){prev=.83*prev+.17*n;v=(n-prev)*.48+prev*.16;if(Math.random()<.0008)v+=n*.8;}
+  else if(kind==='whisper'){prev=.88*prev+.12*n;var breath=.28+.2*Math.pow(Math.sin(t*1.17),2);v=(n*.35+prev*.18)*breath;}
+  d[i]=clamp(v,-1,1);
+ }
+ buffers[kind]=b;return b;
+}
+function makeImpulse(amount){
+ if(!audioCtx)return null;var sec=.35+amount*3.3,len=Math.max(1,audioCtx.sampleRate*sec),b=audioCtx.createBuffer(2,len,audioCtx.sampleRate),ch,i;
+ for(ch=0;ch<2;ch++){var d=b.getChannelData(ch);for(i=0;i<len;i++){var decay=Math.pow(1-i/len,2.2+amount*2);d[i]=(Math.random()*2-1)*decay*(i<40?i/40:1)}}return b;
+}
+function initAudio(){
+ if(audioCtx){audioCtx.resume();return}
+ var AC=window.AudioContext||window.webkitAudioContext;if(!AC){toast('Web Audio is not supported in this browser');return}
+ audioCtx=new AC();masterGain=audioCtx.createGain();dryGain=audioCtx.createGain();wetGain=audioCtx.createGain();convolver=audioCtx.createConvolver();
+ var compressor=audioCtx.createDynamicsCompressor();recDest=audioCtx.createMediaStreamDestination();
+ dryGain.connect(masterGain);convolver.connect(wetGain);wetGain.connect(masterGain);masterGain.connect(compressor);compressor.connect(audioCtx.destination);compressor.connect(recDest);
+ masterGain.gain.value=+$('masterVolume').value/100;updateReverb(+$('roomSize').value/100,true);
+ sources.forEach(buildAudio);
+ audioCtx.onstatechange=updateEngineStatus;updateEngineStatus();
+}
+function updateEngineStatus(){var on=audioCtx&&audioCtx.state==='running';$('audioDot').classList.toggle('on',on);$('engineStatus').textContent=on?(sources.length+' sources · binaural HRTF'):'Audio engine paused'}
+function buildAudio(s){
+ if(!audioCtx||s.audioBuilt)return;s.inputGain=audioCtx.createGain();s.panner=audioCtx.createPanner();s.analyser=audioCtx.createAnalyser();s.analyser.fftSize=64;
+ s.panner.panningModel='HRTF';s.panner.distanceModel='inverse';s.panner.refDistance=1;s.panner.maxDistance=100;s.panner.rolloffFactor=1.1;
+ s.inputGain.connect(s.panner);s.panner.connect(s.analyser);s.analyser.connect(dryGain);s.analyser.connect(convolver);s.audioBuilt=true;setPanner(s,true);setSourceGain(s,true);startKind(s,s.kind);
+}
+function stopInput(s){
+ if(s.bufferNode){try{s.bufferNode.stop()}catch(e){}try{s.bufferNode.disconnect()}catch(e){}s.bufferNode=null}
+ if(s.mediaNode){try{s.mediaNode.disconnect()}catch(e){}s.mediaNode=null}
+ if(s.micStream){s.micStream.getTracks().forEach(function(t){t.stop()});s.micStream=null}
+}
+function startKind(s,kind,file){
+ s.kind=kind;if(!audioCtx||!s.audioBuilt)return;stopInput(s);
+ if(['rain','fireplace','wind','crickets','stream','whisper'].indexOf(kind)>=0){var node=audioCtx.createBufferSource();node.buffer=makeNoiseBuffer(kind);node.loop=true;node.connect(s.inputGain);node.start();s.bufferNode=node}
+ else if(kind==='mic'){
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){toast('Microphone input is unavailable here');return}
+  navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){if(s.kind!=='mic'){stream.getTracks().forEach(function(t){t.stop()});return}s.micStream=stream;s.mediaNode=audioCtx.createMediaStreamSource(stream);s.mediaNode.connect(s.inputGain);toast('Microphone added as a movable source')}).catch(function(){toast('Microphone permission was not granted')});
+ }
+ else if(kind==='upload'&&file){file.arrayBuffer().then(function(ab){return audioCtx.decodeAudioData(ab)}).then(function(buf){if(s.kind!=='upload')return;var n=audioCtx.createBufferSource();n.buffer=buf;n.loop=true;n.connect(s.inputGain);n.start();s.bufferNode=n;s.fileName=file.name;toast('Audio file loaded')}).catch(function(){toast('That audio file could not be decoded')})}
+}
+function setSourceGain(s,instant){if(!s.inputGain||!audioCtx)return;var v=s.muted?0:s.volume;(instant?s.inputGain.gain.setValueAtTime(v,audioCtx.currentTime):dbSmooth(s.inputGain.gain,v,audioCtx.currentTime))}
+function setPanner(s,instant){if(!s.panner||!audioCtx)return;var t=audioCtx.currentTime,tc=instant?0:.04;if(s.panner.positionX){if(instant){s.panner.positionX.setValueAtTime(s.x,t);s.panner.positionY.setValueAtTime(s.height,t);s.panner.positionZ.setValueAtTime(s.z,t)}else{s.panner.positionX.setTargetAtTime(s.x,t,tc);s.panner.positionY.setTargetAtTime(s.height,t,tc);s.panner.positionZ.setTargetAtTime(s.z,t,tc)}}else{s.panner.setPosition(s.x,s.height,s.z)}}
+function updateListener(){
+ if(!audioCtx)return;var L=audioCtx.listener,t=audioCtx.currentTime,fx=Math.sin(listener.angle*Math.PI/180),fz=-Math.cos(listener.angle*Math.PI/180);
+ if(L.positionX){L.positionX.setTargetAtTime(listener.x,t,.035);L.positionY.setTargetAtTime(0,t,.035);L.positionZ.setTargetAtTime(listener.z,t,.035);L.forwardX.setTargetAtTime(fx,t,.035);L.forwardY.setTargetAtTime(0,t,.035);L.forwardZ.setTargetAtTime(fz,t,.035);L.upX.setTargetAtTime(0,t,.035);L.upY.setTargetAtTime(1,t,.035);L.upZ.setTargetAtTime(0,t,.035)}else{L.setPosition(listener.x,0,listener.z);L.setOrientation(fx,0,fz,0,1,0)}
+}
+function updateReverb(a,instant){if(!audioCtx)return;convolver.buffer=makeImpulse(a);var wet=Math.min(.68,a*.72),dry=Math.sqrt(1-wet*wet);if(instant){wetGain.gain.value=wet;dryGain.gain.value=dry}else{dbSmooth(wetGain.gain,wet,audioCtx.currentTime);dbSmooth(dryGain.gain,dry,audioCtx.currentTime)}}
+function newSource(data){
+ data=data||{};var s={id:nextId++,kind:data.kind||'rain',x:data.x==null?8:data.x,z:data.z==null?5:data.z,height:data.h||0,volume:data.v==null?.7:data.v,muted:false,automation:data.auto||'none',speed:data.speed||1,color:COLORS[(nextId-2)%COLORS.length],phase:Math.random()*Math.PI*2,baseX:data.x==null?8:data.x,baseZ:data.z==null?5:data.z,audioBuilt:false};sources.push(s);if(audioCtx)buildAudio(s);selectSource(s.id);updateEngineStatus();return s;
+}
+function removeSource(id){var ix=sources.findIndex(function(s){return s.id===id});if(ix<0)return;stopInput(sources[ix]);if(sources[ix].inputGain)try{sources[ix].inputGain.disconnect()}catch(e){}sources.splice(ix,1);selectSource(sources.length?sources[Math.max(0,ix-1)].id:null);updateEngineStatus()}
+function selectSource(id){selectedId=id;var s=getSelected(),empty=!s;$('sourceEmpty').hidden=!empty;$('sourceControls').hidden=empty;$('selectedTag').hidden=empty;if(!s){return}$('selectedTag').textContent='SOURCE '+(sources.indexOf(s)+1);$('soundPicker').value=s.kind;$('sourceVolume').value=Math.round(s.volume*100);$('sourceHeight').value=Math.round(s.height*10);$('automation').value=s.automation;$('motionSpeed').value=Math.round(s.speed*100);$('muteBtn').textContent=s.muted?'Unmute':'Mute';updatePanelValues()}
+function getSelected(){return sources.find(function(s){return s.id===selectedId})||null}
+function updatePanelValues(){var s=getSelected();if(!s)return;$('sourceVolumeValue').textContent=Math.round(s.volume*100)+'%';$('sourceHeightValue').textContent=(s.height>=0?'+':'')+s.height.toFixed(1)+' m';$('motionSpeedValue').textContent=s.speed.toFixed(1)+'×';$('coordX').textContent=s.x.toFixed(1)+' m';$('coordY').textContent=s.height.toFixed(1)+' m';$('coordZ').textContent=s.z.toFixed(1)+' m'}
+function loadPreset(key){
+ var p=presets[key];if(!p)return;sources.slice().forEach(function(s){stopInput(s);if(s.inputGain)try{s.inputGain.disconnect()}catch(e){}});sources=[];selectedId=null;nextId=1;listener={x:8,z:5,angle:0};p.sources.forEach(newSource);if(!p.sources.length)selectSource(null);$('roomSize').value=p.room;$('roomSizeValue').textContent=p.room+'%';$('listenerAngle').value=0;$('listenerAngleValue').textContent='0°';$('sceneName').textContent=p.name;activePreset=key;document.querySelectorAll('[data-preset]').forEach(function(b){b.classList.toggle('active',b.dataset.preset===key)});if(audioCtx){updateReverb(p.room/100,true);updateListener()}updateEngineStatus();toast(p.name+' loaded')
+}
+function serialize(){return {version:1,name:$('sceneName').textContent,room:+$('roomSize').value,master:+$('masterVolume').value,listener:{x:listener.x,z:listener.z,angle:listener.angle},sources:sources.map(function(s){return {kind:s.kind==='upload'?'rain':s.kind,x:s.x,z:s.z,h:s.height,v:s.volume,muted:s.muted,auto:s.automation,speed:s.speed}})}}
+function loadScene(data){
+ if(!data||!Array.isArray(data.sources)||!data.listener)throw new Error('Invalid scene');sources.slice().forEach(function(s){stopInput(s)});sources=[];nextId=1;listener={x:clamp(+data.listener.x||8,0,WORLD_W),z:clamp(+data.listener.z||5,0,WORLD_H),angle:+data.listener.angle||0};data.sources.slice(0,20).forEach(function(d){var s=newSource(d);s.muted=!!d.muted;setSourceGain(s,true)});if(!sources.length)selectSource(null);$('roomSize').value=clamp(+data.room||0,0,100);$('masterVolume').value=clamp(+data.master||78,0,100);$('sceneName').textContent=(data.name||'Imported Scene').slice(0,48);activePreset='';document.querySelectorAll('[data-preset]').forEach(function(b){b.classList.remove('active')});syncGlobals();if(audioCtx){updateListener();updateReverb(+$('roomSize').value/100,true);masterGain.gain.value=+$('masterVolume').value/100}toast('Scene imported')
+}
+function syncGlobals(){$('roomSizeValue').textContent=$('roomSize').value+'%';$('masterVolumeValue').textContent=$('masterVolume').value+'%';$('listenerAngle').value=Math.round(listener.angle);$('listenerAngleValue').textContent=Math.round(listener.angle)+'°'}
+function resize(){var r=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.max(1,Math.round(r.width*dpr));canvas.height=Math.max(1,Math.round(r.height*dpr));ctx2d.setTransform(dpr,0,0,dpr,0,0)}
+function metrics(){var w=canvas.clientWidth,h=canvas.clientHeight,pad=30,scale=Math.min((w-pad*2)/WORLD_W,(h-pad*2)/WORLD_H);return {w:w,h:h,s:scale,ox:(w-WORLD_W*scale)/2,oy:(h-WORLD_H*scale)/2}}
+function toCanvas(x,z,m){return {x:m.ox+x*m.s,y:m.oy+z*m.s}}
+function toWorld(x,y,m){return {x:clamp((x-m.ox)/m.s,0,WORLD_W),z:clamp((y-m.oy)/m.s,0,WORLD_H)}}
+function roundRect(c,x,y,w,h,r){r=Math.min(r,w/2,h/2);c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()}
+function draw(t){
+ var m=metrics(),c=ctx2d,w=m.w,h=m.h;c.clearRect(0,0,w,h);c.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--room');c.fillRect(0,0,w,h);
+ c.save();roundRect(c,m.ox,m.oy,WORLD_W*m.s,WORLD_H*m.s,6);c.clip();
+ c.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--grid');c.lineWidth=1;
+ var i;for(i=0;i<=WORLD_W;i++){var a=toCanvas(i,0,m);c.beginPath();c.moveTo(a.x,m.oy);c.lineTo(a.x,m.oy+WORLD_H*m.s);c.stroke()}for(i=0;i<=WORLD_H;i++){var b=toCanvas(0,i,m);c.beginPath();c.moveTo(m.ox,b.y);c.lineTo(m.ox+WORLD_W*m.s,b.y);c.stroke()}
+ sources.forEach(function(s){
+  if(s.automation==='none')return;var p=toCanvas(listener.x,listener.z,m);c.save();c.setLineDash([2,7]);c.strokeStyle=s.color+'55';c.lineWidth=1.2;if(s.automation==='orbit'){var rad=Math.max(1.2,Math.hypot(s.baseX-listener.x,s.baseZ-listener.z))*m.s;c.beginPath();c.arc(p.x,p.y,rad,0,Math.PI*2);c.stroke()}else if(s.automation==='sweep'){c.beginPath();c.moveTo(p.x-2.2*m.s,p.y);c.lineTo(p.x+2.2*m.s,p.y);c.stroke()}else{var bp=toCanvas(s.baseX,s.baseZ,m);c.beginPath();c.arc(bp.x,bp.y,1.35*m.s,0,Math.PI*2);c.stroke()}c.restore();
+ });
+ c.restore();
+ // listener
+ var lp=toCanvas(listener.x,listener.z,m),ang=listener.angle*Math.PI/180;c.save();c.translate(lp.x,lp.y);c.strokeStyle='#dfeceb';c.lineWidth=1.5;c.globalAlpha=.55;c.beginPath();c.arc(0,0,25,0,Math.PI*2);c.stroke();c.globalAlpha=1;c.fillStyle='#dfeceb';c.beginPath();c.arc(0,0,11,0,Math.PI*2);c.fill();c.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--room');c.beginPath();c.arc(-7,0,3.5,0,Math.PI*2);c.arc(7,0,3.5,0,Math.PI*2);c.fill();c.rotate(ang);c.strokeStyle='#79d6c2';c.lineWidth=2;c.beginPath();c.moveTo(0,-13);c.lineTo(0,-25);c.stroke();c.beginPath();c.moveTo(-4,-21);c.lineTo(0,-26);c.lineTo(4,-21);c.stroke();c.restore();
+ // sources
+ sources.forEach(function(s,idx){var p=toCanvas(s.x,s.z,m),lev=.12;if(s.analyser&&audioCtx){var ar=new Uint8Array(s.analyser.fftSize);s.analyser.getByteTimeDomainData(ar);var sum=0;for(var j=0;j<ar.length;j++){var q=(ar[j]-128)/128;sum+=q*q}lev=Math.sqrt(sum/ar.length)}var pulse=22+Math.min(16,lev*100)+Math.sin(t*.004+s.phase)*1.2;c.save();c.globalAlpha=s.muted?.25:1;c.strokeStyle=s.color;c.lineWidth=1.2;c.globalAlpha=(s.muted?.15:.14)+lev*.8;c.beginPath();c.arc(p.x,p.y,pulse,0,Math.PI*2);c.stroke();c.globalAlpha=s.muted?.45:1;c.fillStyle=s.color;c.shadowColor=s.color;c.shadowBlur=s.id===selectedId?20:11;c.beginPath();c.arc(p.x,p.y,11,0,Math.PI*2);c.fill();c.shadowBlur=0;c.fillStyle='#081015';c.font='700 10px ui-sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(String(idx+1),p.x,p.y+.5);if(s.id===selectedId){c.strokeStyle='#edf5f3';c.lineWidth=1.5;c.beginPath();c.arc(p.x,p.y,16,0,Math.PI*2);c.stroke()}if(Math.abs(s.height)>.08){c.strokeStyle=s.color+'aa';c.setLineDash([2,3]);c.beginPath();c.moveTo(p.x+13,p.y);c.lineTo(p.x+13,p.y-s.height*8);c.stroke();c.fillStyle=s.color;c.beginPath();c.arc(p.x+13,p.y-s.height*8,2.5,0,Math.PI*2);c.fill()}c.restore()});
+ c.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--line');c.lineWidth=1;c.strokeRect(m.ox+.5,m.oy+.5,WORLD_W*m.s-1,WORLD_H*m.s-1);
+}
+function animate(now){var dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;sources.forEach(function(s){if(s.automation==='none')return;s.phase+=dt*s.speed*.55;if(s.automation==='orbit'){var r=Math.max(1.2,Math.hypot(s.baseX-listener.x,s.baseZ-listener.z));s.x=clamp(listener.x+Math.cos(s.phase)*r,0,WORLD_W);s.z=clamp(listener.z+Math.sin(s.phase)*r,0,WORLD_H)}else if(s.automation==='sweep'){s.x=clamp(listener.x+Math.sin(s.phase)*2.2,0,WORLD_W);s.z=listener.z-.35}else if(s.automation==='drift'){s.x=clamp(s.baseX+Math.sin(s.phase*.7)*1.1,0,WORLD_W);s.z=clamp(s.baseZ+Math.sin(s.phase*.43+2)*.8,0,WORLD_H)}setPanner(s,false)});updatePanelValues();draw(now);requestAnimationFrame(animate)}
+function pointerPos(e){var r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top}}
+canvas.addEventListener('pointerdown',function(e){var p=pointerPos(e),m=metrics(),lp=toCanvas(listener.x,listener.z,m),dL=Math.hypot(p.x-lp.x,p.y-lp.y);if(dL<15){drag={type:'listener',dx:p.x-lp.x,dy:p.y-lp.y};canvas.setPointerCapture(e.pointerId);return}if(dL>=17&&dL<=34){drag={type:'rotate'};canvas.setPointerCapture(e.pointerId);return}for(var i=sources.length-1;i>=0;i--){var sp=toCanvas(sources[i].x,sources[i].z,m);if(Math.hypot(p.x-sp.x,p.y-sp.y)<20){selectSource(sources[i].id);drag={type:'source',id:sources[i].id};sources[i].automation='none';$('automation').value='none';canvas.setPointerCapture(e.pointerId);return}}selectSource(null)});
+canvas.addEventListener('pointermove',function(e){if(!drag)return;var p=pointerPos(e),m=metrics();if(drag.type==='source'){var w=toWorld(p.x,p.y,m),s=sources.find(function(x){return x.id===drag.id});if(s){s.x=s.baseX=w.x;s.z=s.baseZ=w.z;setPanner(s,false)}}else if(drag.type==='listener'){var q=toWorld(p.x-drag.dx,p.y-drag.dy,m);listener.x=q.x;listener.z=q.z;updateListener()}else if(drag.type==='rotate'){var lp=toCanvas(listener.x,listener.z,m);listener.angle=(Math.atan2(p.x-lp.x,-(p.y-lp.y))*180/Math.PI+360)%360;$('listenerAngle').value=Math.round(listener.angle);$('listenerAngleValue').textContent=Math.round(listener.angle)+'°';updateListener()}});
+canvas.addEventListener('pointerup',function(e){drag=null;try{canvas.releasePointerCapture(e.pointerId)}catch(err){}});canvas.addEventListener('pointercancel',function(){drag=null});
+canvas.addEventListener('dblclick',function(e){var p=pointerPos(e),w=toWorld(p.x,p.y,metrics());newSource({kind:'rain',x:w.x,z:w.z,v:.65});toast('Rain source added')});
+window.addEventListener('keydown',function(e){if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].indexOf(e.key)<0||e.target.matches('input,select'))return;e.preventDefault();var step=e.shiftKey?.5:.2;if(e.key==='ArrowUp')listener.z=clamp(listener.z-step,0,WORLD_H);if(e.key==='ArrowDown')listener.z=clamp(listener.z+step,0,WORLD_H);if(e.key==='ArrowLeft')listener.x=clamp(listener.x-step,0,WORLD_W);if(e.key==='ArrowRight')listener.x=clamp(listener.x+step,0,WORLD_W);updateListener()});
+$('enterBtn').addEventListener('click',function(){entered=true;initAudio();$('entryOverlay').classList.add('hidden');toast('Spatial audio active — headphones on')});
+$('addSource').addEventListener('click',function(){var a=sources.length*.9;newSource({kind:'rain',x:clamp(8+Math.cos(a)*3,1,15),z:clamp(5+Math.sin(a)*2,1,9),v:.65});toast('Source added')});
+$('soundPicker').addEventListener('change',function(){var s=getSelected();if(!s)return;var kind=this.value;if(kind==='upload'){$('fileInput').click();return}startKind(s,kind)});
+$('fileInput').addEventListener('change',function(){var s=getSelected(),f=this.files&&this.files[0];if(s&&f)startKind(s,'upload',f);this.value=''});
+$('sourceVolume').addEventListener('input',function(){var s=getSelected();if(!s)return;s.volume=+this.value/100;setSourceGain(s,false);updatePanelValues()});
+$('sourceHeight').addEventListener('input',function(){var s=getSelected();if(!s)return;s.height=+this.value/10;setPanner(s,false);updatePanelValues()});
+$('automation').addEventListener('change',function(){var s=getSelected();if(!s)return;s.automation=this.value;s.baseX=s.x;s.baseZ=s.z;s.phase=0});
+$('motionSpeed').addEventListener('input',function(){var s=getSelected();if(!s)return;s.speed=+this.value/100;updatePanelValues()});
+$('muteBtn').addEventListener('click',function(){var s=getSelected();if(!s)return;s.muted=!s.muted;setSourceGain(s,false);this.textContent=s.muted?'Unmute':'Mute'});
+$('deleteBtn').addEventListener('click',function(){if(selectedId!=null){removeSource(selectedId);toast('Source removed')}});
+$('listenerAngle').addEventListener('input',function(){listener.angle=+this.value;$('listenerAngleValue').textContent=this.value+'°';updateListener()});
+$('masterVolume').addEventListener('input',function(){$('masterVolumeValue').textContent=this.value+'%';if(masterGain&&audioCtx)dbSmooth(masterGain.gain,+this.value/100,audioCtx.currentTime)});
+$('roomSize').addEventListener('input',function(){$('roomSizeValue').textContent=this.value+'%';if(audioCtx)updateReverb(+this.value/100,false)});
+document.querySelectorAll('[data-preset]').forEach(function(b){b.addEventListener('click',function(){loadPreset(this.dataset.preset)})});
+$('recordBtn').addEventListener('click',function(){
+ if(!audioCtx){toast('Start listening before recording');return}if(!window.MediaRecorder){toast('Recording is not supported in this browser');return}
+ if(mediaRecorder&&mediaRecorder.state==='recording'){mediaRecorder.stop();return}
+ recordChunks=[];mediaRecorder=new MediaRecorder(recDest.stream);mediaRecorder.ondataavailable=function(e){if(e.data.size)recordChunks.push(e.data)};mediaRecorder.onstop=function(){var type=mediaRecorder.mimeType||'audio/webm',blob=new Blob(recordChunks,{type:type}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='headroom-mix-'+new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')+'.webm';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);$('recordBtn').classList.remove('recording');$('recordLabel').textContent='Record';toast('Binaural mix downloaded')};mediaRecorder.start();this.classList.add('recording');$('recordLabel').textContent='Stop';toast('Recording master output')
+});
+$('downloadScene').addEventListener('click',function(){var blob=new Blob([JSON.stringify(serialize(),null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=($('sceneName').textContent||'headroom-scene').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.json';a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},1000);toast('Scene file downloaded')});
+$('importScene').addEventListener('click',function(){$('sceneInput').click()});$('sceneInput').addEventListener('change',function(){var f=this.files&&this.files[0];if(!f)return;f.text().then(function(t){loadScene(JSON.parse(t))}).catch(function(){toast('That scene file is not valid')});this.value=''});
+window.addEventListener('resize',resize);if(window.ResizeObserver)new ResizeObserver(resize).observe(stage);
+loadPreset('cabin');resize();requestAnimationFrame(animate);
+})();
+</script>
+</body>
+</html>
