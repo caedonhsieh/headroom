@@ -1,0 +1,32 @@
+Headroom / Hour Engine — CC0 sample pool
+Downloaded 2026-09-29. Every file was verified as Creative Commons 0
+(public domain dedication) on its Freesound sound page before download.
+
+1. rain-bed.wav (mp3/rain-bed.mp3)
+   "Rain_06.wav" by Q.K. — 1:45, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/Q.K./sounds/56311/
+   Category: bed texture
+
+2. thunder-rumble.wav (mp3/thunder-rumble.mp3)
+   "Dry storm thunders" by fran_marenco — 3:49, WAV 48kHz/24-bit stereo
+   https://freesound.org/people/fran_marenco/sounds/796529/
+   Category: rumble
+
+3. fire-crackle.wav (mp3/fire-crackle.mp3)
+   "Wood fire crackling, near flames" by felix.blume — 3:01, WAV 48kHz/24-bit
+   https://freesound.org/people/felix.blume/sounds/779877/
+   Category: bed texture
+
+4. stream-bed.wav (mp3/stream-bed.mp3)
+   "stream2.wav" by gluckose — 2:36, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/gluckose/sounds/333987/
+   Category: bed texture
+
+5. wind-bed.wav (mp3/wind-bed.mp3)
+   "Wind blowing into some cactus spine, on the top of the mountain,
+   in the desert of Atacama (Chile)." by felix.blume — 2:00, WAV 96kHz/24-bit stereo
+   https://freesound.org/people/felix.blume/sounds/156414/
+   Category: bed texture
+
+The mp3/ folder holds 192kbps MP3 copies for easy uploading into the
+hour engine prototype. Originals are kept as the archival copies.
