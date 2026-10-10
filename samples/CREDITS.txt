@@ -30,3 +30,21 @@ Downloaded 2026-09-29. Every file was verified as Creative Commons 0
 
 The mp3/ folder holds 192kbps MP3 copies for easy uploading into the
 hour engine prototype. Originals are kept as the archival copies.
+
+6. surf-gentle.wav (mp3/surf-gentle.mp3)
+   "Waves On The Beach (Sand Wash).wav" by ralph.whitehead — 4:00 excerpt
+   (original 13:00), WAV 48kHz/24-bit stereo
+   https://freesound.org/people/ralph.whitehead/sounds/470648/
+   Category: bed texture
+
+7. waves-on-rocks.wav (mp3/waves-on-rocks.mp3)
+   "Waves crashing on the rocks in Veracruz" by felix.blume — 4:00 excerpt
+   (original 9:50), WAV 48kHz/24-bit stereo
+   https://freesound.org/people/felix.blume/sounds/411509/
+   Category: bed texture
+
+8. sea-breeze.wav (mp3/sea-breeze.mp3)
+   "Breezy Beach" by eqavox — 4:00 excerpt (original 15:02),
+   WAV 48kHz/24-bit stereo (downsampled from 96kHz)
+   https://freesound.org/people/eqavox/sounds/683527/
+   Category: bed texture
