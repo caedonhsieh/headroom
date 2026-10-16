@@ -76,3 +76,45 @@ hour engine prototype. Originals are kept as the archival copies.
    "SteinbergPark_Leaves_Rustling" by SMKoski02 — 1:38, WAV 48kHz/24-bit stereo
    https://freesound.org/people/SMKoski02/sounds/854303/
    Category: bed texture
+
+14. owl-hoot.wav (mp3/owl-hoot.mp3)
+   "Owl Hoot" by Breviceps — 0:04, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/Breviceps/sounds/465697/
+   Category: event
+
+15. woodpecker.wav (mp3/woodpecker.mp3)
+   "Lone Woodpecker" by deleted_user_11205508 — 0:31, WAV 44.1kHz/16-bit mono
+   (converted from M4A)
+   https://freesound.org/people/deleted_user_11205508/sounds/517503/
+   Category: event
+
+16. branch-creak.wav (mp3/branch-creak.mp3)
+   "tree wind creaking.wav" by HMTSCCSound — 0:46, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/HMTSCCSound/sounds/554651/
+   Category: event
+
+17. drizzle.wav (mp3/drizzle.mp3)
+   "drizzle-4perspectives.wav" by Bmangelo — 1:37, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/Bmangelo/sounds/512254/
+   Category: bed texture
+
+18. downpour.wav (mp3/downpour.mp3)
+   "Autumn downpour log-cabin Axelfors part 2" by forestfjord — 2:39,
+   WAV 48kHz/16-bit mono (converted from M4A)
+   https://freesound.org/people/forestfjord/sounds/836526/
+   Category: bed texture
+
+19. rain-on-tent.wav (mp3/rain-on-tent.mp3)
+   "In the Tent - Rain" by pulswelle — 4:12, WAV 44.1kHz/24-bit stereo
+   https://freesound.org/people/pulswelle/sounds/251233/
+   Category: bed texture
+
+20. heavy-drops.wav (mp3/heavy-drops.mp3)
+   "HeavyRainOnRoof.wav" by edschaefer — 0:19, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/edschaefer/sounds/397409/
+   Category: event
+
+21. log-pops.wav (mp3/log-pops.mp3)
+   "Fire Crackle and Flames 001" by TheWoodlandNomad — 0:31, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/TheWoodlandNomad/sounds/363093/
+   Category: event

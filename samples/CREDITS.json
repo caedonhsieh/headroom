@@ -130,6 +130,86 @@
       "source_url": "https://freesound.org/people/SMKoski02/sounds/854303/",
       "title": "SteinbergPark_Leaves_Rustling",
       "uploader": "SMKoski02"
+    },
+    {
+      "category": "event",
+      "duration": "0:04.393",
+      "format": "WAV, 44100 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "owl-hoot.wav",
+      "source_url": "https://freesound.org/people/Breviceps/sounds/465697/",
+      "title": "Owl Hoot",
+      "uploader": "Breviceps"
+    },
+    {
+      "category": "event",
+      "duration": "0:31.322",
+      "format": "WAV, 44100 Hz, 16-bit, mono (converted from M4A)",
+      "license": "CC0",
+      "local_file": "woodpecker.wav",
+      "source_url": "https://freesound.org/people/deleted_user_11205508/sounds/517503/",
+      "title": "Lone Woodpecker",
+      "uploader": "deleted_user_11205508"
+    },
+    {
+      "category": "event",
+      "duration": "0:45.756",
+      "format": "WAV, 44100 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "branch-creak.wav",
+      "source_url": "https://freesound.org/people/HMTSCCSound/sounds/554651/",
+      "title": "tree wind creaking.wav",
+      "uploader": "HMTSCCSound"
+    },
+    {
+      "category": "bed texture",
+      "duration": "1:36.770",
+      "format": "WAV, 44100 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "drizzle.wav",
+      "source_url": "https://freesound.org/people/Bmangelo/sounds/512254/",
+      "title": "drizzle-4perspectives.wav",
+      "uploader": "Bmangelo"
+    },
+    {
+      "category": "bed texture",
+      "duration": "2:39.423",
+      "format": "WAV, 48000 Hz, 16-bit, mono (converted from M4A)",
+      "license": "CC0",
+      "local_file": "downpour.wav",
+      "source_url": "https://freesound.org/people/forestfjord/sounds/836526/",
+      "title": "Autumn downpour log-cabin Axelfors part 2",
+      "uploader": "forestfjord"
+    },
+    {
+      "category": "bed texture",
+      "duration": "4:12.000",
+      "format": "WAV, 44100 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "rain-on-tent.wav",
+      "source_url": "https://freesound.org/people/pulswelle/sounds/251233/",
+      "title": "In the Tent - Rain",
+      "uploader": "pulswelle"
+    },
+    {
+      "category": "event",
+      "duration": "0:19.024",
+      "format": "WAV, 44100 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "heavy-drops.wav",
+      "source_url": "https://freesound.org/people/edschaefer/sounds/397409/",
+      "title": "HeavyRainOnRoof.wav",
+      "uploader": "edschaefer"
+    },
+    {
+      "category": "event",
+      "duration": "0:31.218",
+      "format": "WAV, 44100 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "log-pops.wav",
+      "source_url": "https://freesound.org/people/TheWoodlandNomad/sounds/363093/",
+      "title": "Fire Crackle and Flames 001",
+      "uploader": "TheWoodlandNomad"
     }
   ],
   "license_note": "Every file below was verified on its Freesound sound page as Creative Commons 0 (public domain dedication) before download. No attribution required; provenance kept here as good hygiene for Content ID disputes.",
