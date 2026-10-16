@@ -1,5 +1,5 @@
 {
-  "downloaded": "2026-09-29, 2026-10-10",
+  "downloaded": "2026-09-29, 2026-10-10, 2026-10-16",
   "files": [
     {
       "category": "bed texture",
@@ -80,6 +80,56 @@
       "source_url": "https://freesound.org/people/eqavox/sounds/683527/",
       "title": "Breezy Beach",
       "uploader": "eqavox"
+    },
+    {
+      "category": "event",
+      "duration": "0:08.217",
+      "format": "WAV, 48000 Hz, 24-bit, stereo (converted from AIFF)",
+      "license": "CC0",
+      "local_file": "foghorn-distant.wav",
+      "source_url": "https://freesound.org/people/Danjocross/sounds/507471/",
+      "title": "Long Distant Foghorn.aiff",
+      "uploader": "Danjocross"
+    },
+    {
+      "category": "event",
+      "duration": "0:00.395",
+      "format": "WAV, 44100 Hz, 16-bit, stereo (converted from OGG)",
+      "license": "CC0",
+      "local_file": "gull-call.wav",
+      "source_url": "https://freesound.org/people/steaq/sounds/263786/",
+      "title": "Seagull single call",
+      "uploader": "steaq"
+    },
+    {
+      "category": "event",
+      "duration": "0:30.699",
+      "format": "WAV, 48000 Hz, 16-bit, mono (converted from M4A)",
+      "license": "CC0",
+      "local_file": "buoy-bell.wav",
+      "source_url": "https://freesound.org/people/KM10/sounds/822501/",
+      "title": "Surf with buoy bell",
+      "uploader": "KM10"
+    },
+    {
+      "category": "bed texture",
+      "duration": "3:04.685",
+      "format": "WAV, 44100 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "pine-wind.wav",
+      "source_url": "https://freesound.org/people/kvgarlic/sounds/184277/",
+      "title": "WindThroughPinesApril62013.wav",
+      "uploader": "kvgarlic"
+    },
+    {
+      "category": "bed texture",
+      "duration": "1:37.622",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "leaves-rustling.wav",
+      "source_url": "https://freesound.org/people/SMKoski02/sounds/854303/",
+      "title": "SteinbergPark_Leaves_Rustling",
+      "uploader": "SMKoski02"
     }
   ],
   "license_note": "Every file below was verified on its Freesound sound page as Creative Commons 0 (public domain dedication) before download. No attribution required; provenance kept here as good hygiene for Content ID disputes.",

@@ -1,5 +1,5 @@
 Headroom / Hour Engine — CC0 sample pool
-Downloaded 2026-09-29. Every file was verified as Creative Commons 0
+Downloaded 2026-09-29, 2026-10-10, 2026-10-16. Every file was verified as Creative Commons 0
 (public domain dedication) on its Freesound sound page before download.
 
 1. rain-bed.wav (mp3/rain-bed.mp3)
@@ -47,4 +47,32 @@ hour engine prototype. Originals are kept as the archival copies.
    "Breezy Beach" by eqavox — 4:00 excerpt (original 15:02),
    WAV 48kHz/24-bit stereo (downsampled from 96kHz)
    https://freesound.org/people/eqavox/sounds/683527/
+   Category: bed texture
+
+9. foghorn-distant.wav (mp3/foghorn-distant.mp3)
+   "Long Distant Foghorn.aiff" by Danjocross — 0:08, WAV 48kHz/24-bit stereo
+   (converted from AIFF)
+   https://freesound.org/people/Danjocross/sounds/507471/
+   Category: event
+
+10. gull-call.wav (mp3/gull-call.mp3)
+   "Seagull single call" by steaq — 0:00.4 single call, WAV 44.1kHz/16-bit
+   stereo (converted from OGG)
+   https://freesound.org/people/steaq/sounds/263786/
+   Category: event
+
+11. buoy-bell.wav (mp3/buoy-bell.mp3)
+   "Surf with buoy bell" by KM10 — 0:31, WAV 48kHz/16-bit mono
+   (converted from M4A)
+   https://freesound.org/people/KM10/sounds/822501/
+   Category: event
+
+12. pine-wind.wav (mp3/pine-wind.mp3)
+   "WindThroughPinesApril62013.wav" by kvgarlic — 3:05, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/kvgarlic/sounds/184277/
+   Category: bed texture
+
+13. leaves-rustling.wav (mp3/leaves-rustling.mp3)
+   "SteinbergPark_Leaves_Rustling" by SMKoski02 — 1:38, WAV 48kHz/24-bit stereo
+   https://freesound.org/people/SMKoski02/sounds/854303/
    Category: bed texture
