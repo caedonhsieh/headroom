@@ -370,6 +370,86 @@
       "source_url": "https://freesound.org/people/secretmojo/sounds/223892/",
       "title": "geese fly by.wav",
       "uploader": "secretmojo"
+    },
+    {
+      "category": "bed texture",
+      "duration": "4:46.000",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "insect-drone.wav",
+      "source_url": "https://freesound.org/people/simous00/sounds/852877/",
+      "title": "Day Crickets & Cicadas 4",
+      "uploader": "simous00"
+    },
+    {
+      "category": "event",
+      "duration": "0:31.425",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "dripping-water.wav",
+      "source_url": "https://freesound.org/people/BonnyOrbit/sounds/442480/",
+      "title": "Water dripping under bridge in small town.wav",
+      "uploader": "BonnyOrbit"
+    },
+    {
+      "category": "bed texture",
+      "duration": "3:28.000",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "tropical-birds.wav",
+      "source_url": "https://freesound.org/people/alberto_cendra_woodman/sounds/737513/",
+      "title": "Amazon Jungle in the Morning at Rainforest Tambopata National Reserve",
+      "uploader": "alberto_cendra_woodman"
+    },
+    {
+      "category": "bed texture",
+      "duration": "1:58.784",
+      "format": "WAV, 48000 Hz, 24-bit, stereo (converted from FLAC)",
+      "license": "CC0",
+      "local_file": "sand-wind.wav",
+      "source_url": "https://freesound.org/people/kyles/sounds/454361/",
+      "title": "wind light desert day steady eerie with crickets.flac",
+      "uploader": "kyles"
+    },
+    {
+      "category": "event",
+      "duration": "2:00.000",
+      "format": "WAV, 44100 Hz, 16-bit, stereo (converted from MP3)",
+      "license": "CC0",
+      "local_file": "coyote.wav",
+      "source_url": "https://freesound.org/people/robertjd/sounds/69584/",
+      "title": "Coyotes 2.mp3",
+      "uploader": "robertjd"
+    },
+    {
+      "category": "bed texture",
+      "duration": "3:41.040",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "pavement-rain.wav",
+      "source_url": "https://freesound.org/people/joao44/sounds/770380/",
+      "title": "Rain in the city",
+      "uploader": "joao44"
+    },
+    {
+      "category": "bed texture",
+      "duration": "1:51.111",
+      "format": "WAV, 48000 Hz, 24-bit, stereo (converted from FLAC)",
+      "license": "CC0",
+      "local_file": "traffic-hum.wav",
+      "source_url": "https://freesound.org/people/kyles/sounds/454255/",
+      "title": "traffic roar nearby or distant country road stereo left heavy.flac",
+      "uploader": "kyles"
+    },
+    {
+      "category": "event",
+      "duration": "0:19.250",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "soft-siren.wav",
+      "source_url": "https://freesound.org/people/TuneSeeker/sounds/802079/",
+      "title": "Distant police siren",
+      "uploader": "TuneSeeker"
     }
   ],
   "license_note": "Every file below was verified on its Freesound sound page as Creative Commons 0 (public domain dedication) before download. No attribution required; provenance kept here as good hygiene for Content ID disputes.",

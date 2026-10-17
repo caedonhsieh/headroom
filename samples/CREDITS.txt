@@ -204,3 +204,48 @@ hour engine prototype. Originals are kept as the archival copies.
    "geese fly by.wav" by secretmojo — 0:24, WAV 44.1kHz/16-bit mono
    https://freesound.org/people/secretmojo/sounds/223892/
    Category: event
+
+38. insect-drone.wav (mp3/insect-drone.mp3)
+   "Day Crickets & Cicadas 4" by simous00 — 4:46, WAV 48kHz/24-bit stereo
+   https://freesound.org/people/simous00/sounds/852877/
+   Category: bed texture
+
+39. dripping-water.wav (mp3/dripping-water.mp3)
+   "Water dripping under bridge in small town.wav" by BonnyOrbit — 0:31,
+   WAV 48kHz/24-bit stereo
+   https://freesound.org/people/BonnyOrbit/sounds/442480/
+   Category: event
+
+40. tropical-birds.wav (mp3/tropical-birds.mp3)
+   "Amazon Jungle in the Morning at Rainforest Tambopata National Reserve"
+   by alberto_cendra_woodman — 3:28, WAV 48kHz/24-bit stereo
+   https://freesound.org/people/alberto_cendra_woodman/sounds/737513/
+   Category: bed texture
+
+41. sand-wind.wav (mp3/sand-wind.mp3)
+   "wind light desert day steady eerie with crickets.flac" by kyles — 1:59,
+   WAV 48kHz/24-bit stereo (converted from FLAC)
+   https://freesound.org/people/kyles/sounds/454361/
+   Category: bed texture
+
+42. coyote.wav (mp3/coyote.mp3)
+   "Coyotes 2.mp3" by robertjd — 2:00, WAV 44.1kHz/16-bit stereo
+   (converted from MP3)
+   https://freesound.org/people/robertjd/sounds/69584/
+   Category: event
+
+43. pavement-rain.wav (mp3/pavement-rain.mp3)
+   "Rain in the city" by joao44 — 3:41, WAV 48kHz/24-bit stereo
+   https://freesound.org/people/joao44/sounds/770380/
+   Category: bed texture
+
+44. traffic-hum.wav (mp3/traffic-hum.mp3)
+   "traffic roar nearby or distant country road stereo left heavy.flac"
+   by kyles — 1:51, WAV 48kHz/24-bit stereo (converted from FLAC)
+   https://freesound.org/people/kyles/sounds/454255/
+   Category: bed texture
+
+45. soft-siren.wav (mp3/soft-siren.mp3)
+   "Distant police siren" by TuneSeeker — 0:19, WAV 48kHz/24-bit stereo
+   https://freesound.org/people/TuneSeeker/sounds/802079/
+   Category: event
