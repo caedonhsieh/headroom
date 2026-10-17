@@ -160,3 +160,47 @@ hour engine prototype. Originals are kept as the archival copies.
    "Cuckoo.wav" by bratendu — 0:34, WAV 44.1kHz/16-bit mono
    https://freesound.org/people/bratendu/sounds/506675/
    Category: event
+
+30. frog-croaks.wav (mp3/frog-croaks.mp3)
+   "Green frog, croaking.wav" by SpliceSound — 0:30, WAV 48kHz/24-bit mono
+   https://freesound.org/people/SpliceSound/sounds/188195/
+   Category: event
+
+31. cricket-chorus.wav (mp3/cricket-chorus.mp3)
+   "Northern California Crickets" by ellie.vanderlip — 1:56, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/ellie.vanderlip/sounds/704381/
+   Category: bed texture
+
+32. warm-night-air.wav (mp3/warm-night-air.mp3)
+   "Night Crickets Back Porch.aiff" by hdfreema — 3:40, WAV 48kHz/16-bit stereo
+   (converted from AIFF)
+   https://freesound.org/people/hdfreema/sounds/333221/
+   Category: bed texture
+
+33. frog-chorus.wav (mp3/frog-chorus.mp3)
+   "Pacific Tree Frogs in Secluded Pond, Petrolia, CA" by CVLTIV8R — 4:04,
+   WAV 44.1kHz/32-bit stereo
+   https://freesound.org/people/CVLTIV8R/sounds/852657/
+   Category: bed texture
+
+34. gusting-wind.wav (mp3/gusting-wind.mp3)
+   "220328 Wind in trees, med gusts, winter, dry leaves, branches only,
+   EM272st, Toronto" by TRP — 3:13, WAV 48kHz/16-bit stereo (converted from MP3)
+   https://freesound.org/people/TRP/sounds/717552/
+   Category: bed texture
+
+35. leaves-skittering.wav (mp3/leaves-skittering.mp3)
+   "DryLeavesBlowing.wav" by ahill86 — 0:15, WAV 44.1kHz/24-bit mono
+   https://freesound.org/people/ahill86/sounds/207145/
+   Category: event
+
+36. acorns.wav (mp3/acorns.mp3)
+   "Acorns falling.m4a" by patsywatsy — 0:51, WAV 44.1kHz/16-bit mono
+   (converted from M4A)
+   https://freesound.org/people/patsywatsy/sounds/515392/
+   Category: event
+
+37. geese.wav (mp3/geese.mp3)
+   "geese fly by.wav" by secretmojo — 0:24, WAV 44.1kHz/16-bit mono
+   https://freesound.org/people/secretmojo/sounds/223892/
+   Category: event
