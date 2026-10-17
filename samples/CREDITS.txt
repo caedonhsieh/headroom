@@ -118,3 +118,45 @@ hour engine prototype. Originals are kept as the archival copies.
    "Fire Crackle and Flames 001" by TheWoodlandNomad — 0:31, WAV 44.1kHz/16-bit stereo
    https://freesound.org/people/TheWoodlandNomad/sounds/363093/
    Category: event
+
+22. ember-shifts.wav (mp3/ember-shifts.mp3)
+   "embers 1.wav" by AuDRoger — 0:06, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/AuDRoger/sounds/471161/
+   Category: event
+
+23. howling-wind.wav (mp3/howling-wind.mp3)
+   "AMB_Wind_Howling_empty Church close to window_48kHz.wav" by Tonmeister88 —
+   1:48, WAV 48kHz/24-bit stereo
+   https://freesound.org/people/Tonmeister88/sounds/557380/
+   Category: bed texture
+
+24. snowfall-hush.wav (mp3/snowfall-hush.mp3)
+   "Snow Falling In Scotland.wav" by BurghRecords — 2:03, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/BurghRecords/sounds/551118/
+   Category: bed texture
+
+25. ice-cracking.wav (mp3/ice-cracking.mp3)
+   "Ice cracking_northern87" by northern87 — 0:59, WAV 44.1kHz/24-bit stereo
+   https://freesound.org/people/northern87/sounds/369982/
+   Category: event
+
+26. snow-thumps.wav (mp3/snow-thumps.mp3)
+   "Snow - Collapse and fall" by Vrymaa — 0:55, WAV 48kHz/16-bit stereo
+   https://freesound.org/people/Vrymaa/sounds/775014/
+   Category: event
+
+27. distant-bell.wav (mp3/distant-bell.mp3)
+   "Church Bell" by mrspivey — 0:16, WAV 44.1kHz/16-bit stereo
+   https://freesound.org/people/mrspivey/sounds/805156/
+   Category: event
+
+28. dawn-chorus.wav (mp3/dawn-chorus.mp3)
+   "Birds singing, Dawn chorus" by SamsterBirdies — 4:01, WAV 48kHz/16-bit stereo
+   (converted from FLAC)
+   https://freesound.org/people/SamsterBirdies/sounds/578523/
+   Category: bed texture
+
+29. cuckoo.wav (mp3/cuckoo.mp3)
+   "Cuckoo.wav" by bratendu — 0:34, WAV 44.1kHz/16-bit mono
+   https://freesound.org/people/bratendu/sounds/506675/
+   Category: event
