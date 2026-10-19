@@ -1,5 +1,5 @@
 {
-  "downloaded": "2026-09-29, 2026-10-10, 2026-10-16",
+  "downloaded": "2026-09-29, 2026-10-10, 2026-10-16, 2026-10-18",
   "files": [
     {
       "category": "bed texture",
@@ -450,6 +450,166 @@
       "source_url": "https://freesound.org/people/TuneSeeker/sounds/802079/",
       "title": "Distant police siren",
       "uploader": "TuneSeeker"
+    },
+    {
+      "category": "event",
+      "duration": "0:07.328",
+      "format": "WAV, 44100 Hz, 16-bit, mono",
+      "license": "CC0",
+      "local_file": "gull-calls.wav",
+      "source_url": "https://freesound.org/people/Snapper4298/sounds/166703/",
+      "title": "sea gulls.wav",
+      "uploader": "Snapper4298"
+    },
+    {
+      "category": "event",
+      "duration": "0:31.332",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "embers-long.wav",
+      "source_url": "https://freesound.org/people/SamuelGremaud/sounds/459392/",
+      "title": "FIRE - 2",
+      "uploader": "SamuelGremaud"
+    },
+    {
+      "category": "bed texture",
+      "duration": "2:02.849",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "downpour-2.wav",
+      "source_url": "https://freesound.org/people/Danjocross/sounds/164206/",
+      "title": "Rain very heavy with thunder.wav",
+      "uploader": "Danjocross"
+    },
+    {
+      "category": "bed texture",
+      "duration": "1:01.492",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "roof-rain-2.wav",
+      "source_url": "https://freesound.org/people/timothyd4y/sounds/527499/",
+      "title": "Rain on Shed Roof",
+      "uploader": "timothyd4y"
+    },
+    {
+      "category": "bed texture",
+      "duration": "2:03.995",
+      "format": "WAV, 48000 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "sand-wind-2.wav",
+      "source_url": "https://freesound.org/people/Sassaby/sounds/827840/",
+      "title": "Wind in the Mexican Desert",
+      "uploader": "Sassaby"
+    },
+    {
+      "category": "event",
+      "duration": "2:00.832",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "coyote-2.wav",
+      "source_url": "https://freesound.org/people/felix.blume/sounds/376832/",
+      "title": "A coyote is howling at night in the Gran Sabana.",
+      "uploader": "felix.blume"
+    },
+    {
+      "category": "bed texture",
+      "duration": "2:34.973",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "pavement-rain-2.wav",
+      "source_url": "https://freesound.org/people/TRP/sounds/572422/",
+      "title": "180716 Rain, med wash, bright splashy details, street TORONTO.flac",
+      "uploader": "TRP"
+    },
+    {
+      "category": "bed texture",
+      "duration": "2:03.936",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "traffic-2.wav",
+      "source_url": "https://freesound.org/people/szegvari/sounds/608158/",
+      "title": "Street People Cars City Fantasy Traffic Noise Ambience Atmosphere - Mastered ST.wav",
+      "uploader": "szegvari"
+    },
+    {
+      "category": "event",
+      "duration": "0:14.000",
+      "format": "WAV, 44100 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "thunder-crack.wav",
+      "source_url": "https://freesound.org/people/loganzsound/sounds/840628/",
+      "title": "Closeup Thunder Strike 01",
+      "uploader": "loganzsound"
+    },
+    {
+      "category": "bed texture",
+      "duration": "3:30.528",
+      "format": "WAV, 96000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "rain-bed-2.wav",
+      "source_url": "https://freesound.org/people/chromakei/sounds/547892/",
+      "title": "steady night rain",
+      "uploader": "chromakei"
+    },
+    {
+      "category": "bed texture",
+      "duration": "1:11.214",
+      "format": "WAV, 44100 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "fire-2.wav",
+      "source_url": "https://freesound.org/people/NomadApe/sounds/444920/",
+      "title": "Fire crackling in fireplace",
+      "uploader": "NomadApe"
+    },
+    {
+      "category": "bed texture",
+      "duration": "3:26.949",
+      "format": "WAV, 48000 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "surf-2.wav",
+      "source_url": "https://freesound.org/people/kyles/sounds/451630/",
+      "title": "water medium gentle lake waves splash on shore close.flac",
+      "uploader": "kyles"
+    },
+    {
+      "category": "bed texture",
+      "duration": "1:08.336",
+      "format": "WAV, 44100 Hz, 16-bit, mono",
+      "license": "CC0",
+      "local_file": "stream-2.wav",
+      "source_url": "https://freesound.org/people/Bia12/sounds/583754/",
+      "title": "brook.mp3",
+      "uploader": "Bia12"
+    },
+    {
+      "category": "bed texture",
+      "duration": "3:01.000",
+      "format": "WAV, 96000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "wind-2.wav",
+      "source_url": "https://freesound.org/people/felix.blume/sounds/167684/",
+      "title": "Strong wind blowing in the plain in Anatolia (Turkey)",
+      "uploader": "felix.blume"
+    },
+    {
+      "category": "event",
+      "duration": "0:06.989",
+      "format": "WAV, 48000 Hz, 24-bit, stereo",
+      "license": "CC0",
+      "local_file": "owl-2.wav",
+      "source_url": "https://freesound.org/people/ikbenraar/sounds/181134/",
+      "title": "Church_Barn_Owl.aif",
+      "uploader": "ikbenraar"
+    },
+    {
+      "category": "bed texture",
+      "duration": "3:10.993",
+      "format": "WAV, 48000 Hz, 16-bit, stereo",
+      "license": "CC0",
+      "local_file": "night-plain.wav",
+      "source_url": "https://freesound.org/people/Sassaby/sounds/827832/",
+      "title": "Lake Sounds at Night - Rain at End",
+      "uploader": "Sassaby"
     }
   ],
   "license_note": "Every file below was verified on its Freesound sound page as Creative Commons 0 (public domain dedication) before download. No attribution required; provenance kept here as good hygiene for Content ID disputes.",

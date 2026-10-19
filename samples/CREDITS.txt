@@ -1,5 +1,5 @@
 Headroom / Hour Engine — CC0 sample pool
-Downloaded 2026-09-29, 2026-10-10, 2026-10-16. Every file was verified as Creative Commons 0
+Downloaded 2026-09-29, 2026-10-10, 2026-10-16, 2026-10-18. Every file was verified as Creative Commons 0
 (public domain dedication) on its Freesound sound page before download.
 
 1. rain-bed.wav (mp3/rain-bed.mp3)
@@ -249,3 +249,83 @@ hour engine prototype. Originals are kept as the archival copies.
    "Distant police siren" by TuneSeeker — 0:19, WAV 48kHz/24-bit stereo
    https://freesound.org/people/TuneSeeker/sounds/802079/
    Category: event
+
+46. gull-calls.wav (mp3/gull-calls.mp3)
+   "sea gulls.wav" by Snapper4298 — 0:07, WAV 44.1kHz, 16-bit, mono
+   https://freesound.org/people/Snapper4298/sounds/166703/
+   Category: event
+
+47. embers-long.wav (mp3/embers-long.mp3)
+   "FIRE - 2" by SamuelGremaud — 0:31, WAV 48kHz, 24-bit, stereo
+   https://freesound.org/people/SamuelGremaud/sounds/459392/
+   Category: event
+
+48. downpour-2.wav (mp3/downpour-2.mp3)
+   "Rain very heavy with thunder.wav" by Danjocross — 2:02, WAV 48kHz, 24-bit, stereo
+   https://freesound.org/people/Danjocross/sounds/164206/
+   Category: bed texture
+
+49. roof-rain-2.wav (mp3/roof-rain-2.mp3)
+   "Rain on Shed Roof" by timothyd4y — 1:01, WAV 48kHz, 24-bit, stereo
+   https://freesound.org/people/timothyd4y/sounds/527499/
+   Category: bed texture
+
+50. sand-wind-2.wav (mp3/sand-wind-2.mp3)
+   "Wind in the Mexican Desert" by Sassaby — 2:03, WAV 48kHz, 16-bit, stereo
+   https://freesound.org/people/Sassaby/sounds/827840/
+   Category: bed texture
+
+51. coyote-2.wav (mp3/coyote-2.mp3)
+   "A coyote is howling at night in the Gran Sabana." by felix.blume — 2:00, WAV 48kHz, 24-bit, stereo
+   https://freesound.org/people/felix.blume/sounds/376832/
+   Category: event
+
+52. pavement-rain-2.wav (mp3/pavement-rain-2.mp3)
+   "180716 Rain, med wash, bright splashy details, street TORONTO.flac" by TRP — 2:34, WAV 48kHz, 24-bit, stereo (converted from FLAC)
+   https://freesound.org/people/TRP/sounds/572422/
+   Category: bed texture
+
+53. traffic-2.wav (mp3/traffic-2.mp3)
+   "Street People Cars City Fantasy Traffic Noise Ambience Atmosphere - Mastered ST.wav" by szegvari — 2:03, WAV 48kHz, 24-bit, stereo
+   https://freesound.org/people/szegvari/sounds/608158/
+   Category: bed texture
+
+54. thunder-crack.wav (mp3/thunder-crack.mp3)
+   "Closeup Thunder Strike 01" by loganzsound — 0:14, WAV 44.1kHz, 24-bit, stereo
+   https://freesound.org/people/loganzsound/sounds/840628/
+   Category: event
+
+55. rain-bed-2.wav (mp3/rain-bed-2.mp3)
+   "steady night rain" by chromakei — 3:30, WAV 96kHz, 24-bit, stereo (converted from FLAC)
+   https://freesound.org/people/chromakei/sounds/547892/
+   Category: bed texture
+
+56. fire-2.wav (mp3/fire-2.mp3)
+   "Fire crackling in fireplace" by NomadApe — 1:11, WAV 44.1kHz, 16-bit, stereo (converted from M4A)
+   https://freesound.org/people/NomadApe/sounds/444920/
+   Category: bed texture
+
+57. surf-2.wav (mp3/surf-2.mp3)
+   "water medium gentle lake waves splash on shore close.flac" by kyles — 3:26, WAV 48kHz, 16-bit, stereo (converted from FLAC)
+   https://freesound.org/people/kyles/sounds/451630/
+   Category: bed texture
+
+58. stream-2.wav (mp3/stream-2.mp3)
+   "brook.mp3" by Bia12 — 1:08, WAV 44.1kHz, 16-bit, mono (converted from MP3)
+   https://freesound.org/people/Bia12/sounds/583754/
+   Category: bed texture
+
+59. wind-2.wav (mp3/wind-2.mp3)
+   "Strong wind blowing in the plain in Anatolia (Turkey)" by felix.blume — 3:01, WAV 96kHz, 24-bit, stereo
+   https://freesound.org/people/felix.blume/sounds/167684/
+   Category: bed texture
+
+60. owl-2.wav (mp3/owl-2.mp3)
+   "Church_Barn_Owl.aif" by ikbenraar — 0:06, WAV 48kHz, 24-bit, stereo (converted from AIFF)
+   https://freesound.org/people/ikbenraar/sounds/181134/
+   Category: event
+
+61. night-plain.wav (mp3/night-plain.mp3)
+   "Lake Sounds at Night - Rain at End" by Sassaby — 3:10, WAV 48kHz, 16-bit, stereo
+   https://freesound.org/people/Sassaby/sounds/827832/
+   Category: bed texture
